@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type f -name \*.gif -printf "%f\n" | LC_ ALL=C sort -f | rev | cut -b 5- | rev
+find . -type f -name "*.gif" -exec ls -LS {} + | awk '{print 5$, 9$}' | sort -nk1 | rev | cut -d '/' -f 1 | cut -d '.' -f 2- | rev
